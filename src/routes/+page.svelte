@@ -1,18 +1,9 @@
 <script>
-    import { onMount } from "svelte";
-
-    let airplanes = [];
-
-    onMount(async () => {
-        const res = await fetch("/api/test");
-        airplanes = await res.json();
-    });
 </script>
 
-<h1>Airplanes</h1>
+<h1>Home Page</h1>
 <ul>
-    {#each airplanes as plane}
-        <li>{plane.seat_capacity}</li>
-    {/each}
+    <li><a href="/procedures">Procedures</a></li>
+    <li><a href="/views">Views</a></li>
 </ul>
 
