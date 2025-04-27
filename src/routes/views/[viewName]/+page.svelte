@@ -20,10 +20,10 @@
         tableHTML += '</tr></thead>';
         
         tableHTML += '<tbody>';
-        for (let i = 0; i < viewData.length; i++) {
+        for (let rows = 0; rows < viewData.length; rows++) {
             tableHTML += '<tr>';
             for (const key of keys) {
-                tableHTML += `<td>${viewData[i][key]}</td>`;
+                tableHTML += `<td>${viewData[rows][key]}</td>`;
             }
             tableHTML += '</tr>';
         }
