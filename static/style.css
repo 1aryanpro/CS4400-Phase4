@@ -4,13 +4,67 @@
     font-family: sans-serif;
 }
 
+h1 {
+    margin-bottom: 1.5rem;
+}
+
 li {
-    padding: 0.5rem;
-    margin: 1rem;
+    margin-bottom: 1.5rem;
     list-style: none;
 }
 
-a {
-    background-color: lightblue;
-    padding: 0.5rem 1rem;
+a,
+button[type="submit"] {
+    background-color: blue;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 1rem;
+}
+
+body {
+    padding: 20px;
+}
+
+label {
+    font-size: 1rem;
+    display: block;
+    font-weight: bold;
+}
+
+input {
+    margin-left: 1.5rem;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+select {
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    margin-left: 1.5rem;
+    border: 2px solid black;
+    border-radius: 6px;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23333"><path d="M4 6l4 4 4-4z"/></svg>') no-repeat right 0.75rem center;
+    background-size: 1rem 1rem;
+    background-color: white;
+}
+
+select:hover {
+    border-color: #555;
+}
+
+select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }

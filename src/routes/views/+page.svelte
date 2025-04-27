@@ -7,7 +7,10 @@
         "people_in_the_air",
         "people_on_the_ground",
         "route_summary",
-        "alternative_airports"
+        "alternative_airports",
+        "person",
+        "airplane",
+        "airport",
     ];
 </script>
 
