@@ -4,6 +4,7 @@
     let ip_city = '';
     let ip_state = '';
     let ip_country = '';
+    let ip_locationID = '';
 
     let message = '';
 
@@ -17,7 +18,8 @@
                     ip_airport_name,
                     ip_city,
                     ip_state,
-                    ip_country
+                    ip_country,
+                    ip_locationID
                 })
             });
 
@@ -56,6 +58,9 @@
     <label>Country Code: 
         <input bind:value={ip_country} placeholder="e.g., USA" required maxlength="3" />
     </label><br />
+
+    <label>Location ID: 
+        <input bind:value={ip_locationID} placeholder="e.g., port_##" required />
 
     <button type="submit">Add Airport</button>
 </form>
