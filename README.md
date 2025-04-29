@@ -1,38 +1,63 @@
-# sv
+# CS 4400 Phase 4
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Setup and Run Instructions
 
-## Creating a project
+1. Clone the git repo to your system using
+`git clone https://github.com/1aryanpro/CS4400-Phase4.git`
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+2. Update `src/lib/db.js`.
+```js
+const pool = mysql.createPool({
+    host: 'localhost', // <--
+    user: 'root',      // <--
+    password: '',      // <--
+    // ...
+});
 ```
+You likely won't have to change the `host` or `user` but put in the password you
+use for your SQL instance.
 
-## Developing
+3. Run the repo using `npm run dev`. This will use Vite to build the website and
+   will host it on [http://localhost:5173/](http://localhost:5173/) by default
+however it might be difference based on what ports are open.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+4. To stop running the website, close out of the terminal window or `ctrl-c`.
 
-```bash
-npm run dev
+## Technologies
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Svelte & SvelteKit
 
-## Building
+Svelte is a javascript templating library that we used to create the different
+views and forms on the website. SvelteKit is an app framework on top of Svelte
+that handles things like routing allowing us make multiple pages in a
+programmatic way.
 
-To create a production version of your app:
+### HTML & CSS
 
-```bash
-npm run build
-```
+The pages are all written in HTML and we used CSS to style them.
 
-You can preview the production build with `npm run preview`.
+### mysql2
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This is a package that allows us to connect to the MySQL server to trigger the
+procedures and query the views.
+
+## Work Distribution
+
+### Aryan Prodduturi
+
+- Setup the Svelte project and configured mysql2 package
+- Created some of the styles
+
+### Sandip Das
+
+- Created the MySQL integration for all the views
+- Created some of the styles
+
+### Sharon Arulpragasam
+
+- Created the MySQL integration for all the procedures
+
+### Suhaib Dashash
+
+- Tested the procedures
+- Created some of the styles
