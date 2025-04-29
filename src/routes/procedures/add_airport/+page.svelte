@@ -39,28 +39,29 @@
 <h1>Add Airport</h1>
 
 <form on:submit|preventDefault={addAirport}>
-    <label>Airport ID: 
+    <label>Airport ID:
         <input bind:value={ip_airportID} placeholder="e.g., ATL" required maxlength="3" />
     </label><br />
 
-    <label>Airport Name: 
+    <label>Airport Name:
         <input bind:value={ip_airport_name} required />
     </label><br />
 
-    <label>City: 
+    <label>City:
         <input bind:value={ip_city} required />
     </label><br />
 
-    <label>State: 
+    <label>State:
         <input bind:value={ip_state} required />
     </label><br />
 
-    <label>Country Code: 
+    <label>Country Code:
         <input bind:value={ip_country} placeholder="e.g., USA" required maxlength="3" />
     </label><br />
 
-    <label>Location ID: 
+    <label>Location ID:
         <input bind:value={ip_locationID} placeholder="e.g., port_##" required />
+    </label><br />
 
     <button type="submit">Add Airport</button>
 </form>

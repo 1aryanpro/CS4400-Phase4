@@ -6,4 +6,3 @@
     <li><a href="/procedures">Procedures</a></li>
     <li><a href="/views">Views</a></li>
 </ul>
-
