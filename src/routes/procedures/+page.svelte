@@ -18,9 +18,6 @@
     ];
 </script>
 
-<style>
-    @import '../viewsStyles.css';
-</style>
 <h1>Available Procedures</h1>
 
 <ul>

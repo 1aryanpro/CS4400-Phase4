@@ -13,9 +13,6 @@
         "airport",
     ];
 </script>
-<style>
-    @import '../viewsStyles.css';
-</style>
 
 <h1>Available Views</h1>
 <ul>
