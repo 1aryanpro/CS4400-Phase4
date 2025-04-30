@@ -16,19 +16,15 @@ export async function POST({ request }) {
 
     try {
         const connection = await pool.getConnection();
-        try {
-            await connection.query('CALL add_airport(?, ?, ?, ?, ?, ?)', [
-                ip_airportID,
-                ip_airport_name,
-                ip_city,
-                ip_state,
-                ip_country,
-                ip_locationID
-            ]);
-            return json({ success: true });
-        } finally {
-            connection.release();
-        }
+        const [res] = await connection.query('CALL add_airport(?, ?, ?, ?, ?, ?)', [
+            ip_airportID,
+            ip_airport_name,
+            ip_city,
+            ip_state,
+            ip_country,
+            ip_locationID
+        ]);
+        return json({ success: res.affectedRows > 0 });
     } catch (err) {
         console.error('Database error:', err);
         return json({ error: err.message }, { status: 500 });

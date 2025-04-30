@@ -17,7 +17,7 @@ export async function POST({ request }) {
 
     try {
         const connection = await pool.getConnection();
-        try {
+        const [res] =
             await connection.query('CALL add_airplane(?, ?, ?, ?, ?, ?, ?, ?, ?)', [
                 ip_airlineID,
                 ip_tail_num,
@@ -29,10 +29,8 @@ export async function POST({ request }) {
                 ip_model,
                 ip_neo
             ]);
-            return json({ success: true });
-        } finally {
-            connection.release();
-        }
+        connection.release();
+        return json({ success: res.affectedRows > 0 });
     } catch (err) {
         console.error('Database error:', err);
         return json({ error: err.message }, { status: 500 });

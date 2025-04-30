@@ -5,12 +5,9 @@ import { json } from '@sveltejs/kit';
 export async function POST() {
     try {
         const connection = await pool.getConnection();
-        try {
-            await connection.query('CALL simulation_cycle()');
-            return json({ success: true });
-        } finally {
-            connection.release();
-        }
+        const [res] = await connection.query('CALL simulation_cycle()');
+        connection.release();
+        return json({ success: res.affectedRows > 0 });
     } catch (err) {
         console.error('Database error:', err);
         return json({ error: err.message }, { status: 500 });

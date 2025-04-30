@@ -12,11 +12,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Flight landing processed successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Flight landed successfully!";
+            else message = 'Error landing Flight, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to process flight landing.';

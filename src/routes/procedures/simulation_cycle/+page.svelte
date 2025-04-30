@@ -9,11 +9,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Simulation cycle executed successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Simulation cycle executed successfully!";
+            else message = 'Error simulating cycle, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to execute simulation cycle.';

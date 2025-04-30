@@ -16,21 +16,18 @@ export async function POST({ request }) {
 
     try {
         const connection = await pool.getConnection();
-        try {
-            await connection.query('CALL add_person(?, ?, ?, ?, ?, ?, ?, ?)', [
-                ip_personID,
-                ip_first_name,
-                ip_last_name,
-                ip_locationID,
-                ip_taxID,
-                ip_experience,
-                ip_miles,
-                ip_funds
-            ]);
-            return json({ success: true });
-        } finally {
-            connection.release();
-        }
+        const [res] = await connection.query('CALL add_person(?, ?, ?, ?, ?, ?, ?, ?)', [
+            ip_personID,
+            ip_first_name,
+            ip_last_name,
+            ip_locationID,
+            ip_taxID,
+            ip_experience,
+            ip_miles,
+            ip_funds
+        ]);
+        connection.release();
+        return json({ success: res.affectedRows > 0 });
     } catch (err) {
         console.error('Database error:', err);
         return json({ error: err.message }, { status: 500 });

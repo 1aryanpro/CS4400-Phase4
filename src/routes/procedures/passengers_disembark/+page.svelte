@@ -12,11 +12,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Passengers disembarked successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Passengers disembarked successfully!";
+            else message = 'Error disembarking Passenger, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to disembark passengers.';

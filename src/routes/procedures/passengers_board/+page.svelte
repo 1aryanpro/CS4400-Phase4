@@ -12,11 +12,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Passengers boarded successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Passenger boarded successfully!";
+            else message = 'Error boarding Passenger, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to board passengers.';

@@ -24,11 +24,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Airport added successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Airport added successfully!";
+            else message = 'Error adding Airport, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to add airport.';

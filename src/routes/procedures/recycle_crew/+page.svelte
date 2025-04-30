@@ -12,11 +12,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'Crew recycled successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "Crew recycled successfully!";
+            else message = 'Error recycling Crew, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to recycle crew.';

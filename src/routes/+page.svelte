@@ -11,6 +11,7 @@
         "person",
         "airplane",
         "airport",
+        "flight",
     ];
 
     let procedures = [
@@ -51,3 +52,4 @@
         {/each}
     </ul>
 </div>
+

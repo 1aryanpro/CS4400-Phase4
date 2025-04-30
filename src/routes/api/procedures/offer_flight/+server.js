@@ -17,20 +17,17 @@ export async function POST({ request }) {
 
     try {
         const connection = await pool.getConnection();
-        try {
-            await connection.query('CALL offer_flight(?, ?, ?, ?, ?, ?, ?)', [
-                ip_flightID,
-                ip_routeID,
-                ip_support_airline,
-                ip_support_tail,
-                ip_progress,
-                ip_next_time,
-                ip_cost
-            ]);
-            return json({ success: true });
-        } finally {
-            connection.release();
-        }
+        const [res] = await connection.query('CALL offer_flight(?, ?, ?, ?, ?, ?, ?)', [
+            ip_flightID,
+            ip_routeID,
+            ip_support_airline,
+            ip_support_tail,
+            ip_progress,
+            ip_next_time,
+            ip_cost
+        ]);
+        connection.release();
+        return json({ success: res.affectedRows > 0 });
     } catch (err) {
         console.error('Database error:', err);
         return json({ error: err.message }, { status: 500 });

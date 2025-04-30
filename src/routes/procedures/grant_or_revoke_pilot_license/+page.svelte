@@ -16,11 +16,8 @@
             });
 
             const data = await response.json();
-            if (response.ok) {
-                message = 'License status updated successfully!';
-            } else {
-                message = `Error: ${data.error}`;
-            }
+            if (response.success) message = "License updated successfully!";
+            else message = 'Error updating license, something is wrong';
         } catch (err) {
             console.error(err);
             message = 'Failed to update license.';
