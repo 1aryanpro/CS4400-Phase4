@@ -101,3 +101,7 @@ select:focus {
 p {
     margin-top: 0.75rem;
 }
+
+form {
+    padding-left: 30vw;
+}
