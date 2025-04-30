@@ -12,6 +12,10 @@
         "airplane",
         "airport",
         "flight",
+        "location",
+        "passenger",
+        "pilot",
+        "pilot_licenses",
     ];
 
     let procedures = [
